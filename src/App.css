@@ -36,3 +36,14 @@
     transform: rotate(360deg);
   }
 }
+
+/* Add the background image styling to the paper-backgroundImage class */
+.paper-backgroundImage {
+  background-image: url('./images/money.jpeg'); /* Update with your image path */
+  background-position: right;
+  margin: 10px;
+  position: relative;
+  overflow: hidden;
+  background-blend-mode: darken;
+  opacity: 0.9;
+}

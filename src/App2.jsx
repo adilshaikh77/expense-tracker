@@ -1,3 +1,5 @@
+// App.js
+
 import {
   AppBar,
   Box,
@@ -48,18 +50,16 @@ const App = () => {
         <Grid item xs={12}>
           <Container sx={{ display: 'flex', justifyContent: 'center' }}>
             <Paper
-              className="paper-backgroundImage"
+              className="paper-backgroundImage" // Added class for background image
               elevation={4}
               sx={{
                 height: '300px',
                 borderRadius: '40px',
                 width: '500px',
+                // Removed background image styling from here
               }}
             >
-              <Typography
-                sx={{ pt: 14, pl: 2, fontWeight: 'bold' }}
-                variant="h4"
-              >
+              <Typography sx={{ pt: 14, pl: 2 }} variant="h4">
                 Balance:
               </Typography>
             </Paper>
