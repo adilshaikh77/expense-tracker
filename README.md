@@ -1,6 +1,7 @@
-# Getting Started with Create React App
-
+# Getting Started with Expense Tracker
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+### `npm i` should be the first command you should run
 
 ## Available Scripts
 
