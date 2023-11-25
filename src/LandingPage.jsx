@@ -64,7 +64,10 @@ const LandingPage = () => {
                 flexWrap: "wrap",
               }}
             >
-              <Typography sx={{ pl: 2 }} variant="h4">
+              <Typography
+                sx={{ pl: 2, zIndex: 1, bgcolor: "#72ce87c2" }}
+                variant="h4"
+              >
                 Balance: {balance}
               </Typography>
             </Paper>
