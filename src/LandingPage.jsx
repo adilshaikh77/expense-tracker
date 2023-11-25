@@ -13,6 +13,7 @@ import "./LandingPage.css";
 import IncomeForm from "./components/IncomeForm";
 import { useSelector } from "react-redux";
 import { selectBalance } from "./selectors";
+import "./LandingPage.css";
 
 const LandingPage = () => {
   const balance = useSelector(selectBalance);
@@ -53,13 +54,11 @@ const LandingPage = () => {
           <Container sx={{ display: "flex", justifyContent: "center" }}>
             <Paper
               elevation={4}
+              className="paper-backgroundImage"
               sx={{
                 height: "250px",
                 borderRadius: "40px",
                 width: "460px",
-                backgroundImage: "linear-gradient(to right, #fbc2eb, #a6c1ee)",
-                backgroundPosition: "center",
-                backgroundSize: "cover",
                 display: "flex",
                 alignContent: "center",
                 flexWrap: "wrap",
