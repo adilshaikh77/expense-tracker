@@ -1,77 +1,22 @@
-import {
-  AppBar,
-  Box,
-  Container,
-  Grid,
-  Paper,
-  Toolbar,
-  Typography,
-} from "@mui/material";
+import { Grid, Paper } from "@mui/material";
 import React from "react";
-import AccountBalanceIcon from "@mui/icons-material/AccountBalance";
+
 import "./LandingPage.css";
-import IncomeForm from "./components/IncomeForm";
-import { useSelector } from "react-redux";
-import { selectBalance } from "./selectors";
+import IncomeForm from "./components/income/IncomeForm";
+
 import "./LandingPage.css";
+import BalanceCard from "./components/BalanceCard";
+import MenuBar from "./components/MenuBar";
 
 const LandingPage = () => {
-  const balance = useSelector(selectBalance);
   return (
     <div>
       <Grid container spacing={2}>
         <Grid item xs={12}>
-          <AppBar position="static" color="">
-            <Toolbar
-              sx={{
-                display: "flex",
-                justifyContent: "space-between",
-              }}
-            >
-              <Box sx={{ display: "flex" }}>
-                <AccountBalanceIcon />
-                <Typography sx={{ pl: 2 }}>Expense Tracker</Typography>
-              </Box>
-              <Box
-                sx={{
-                  display: "flex",
-                }}
-              >
-                <Typography variant="subtitle1" sx={{ p: 1 }}>
-                  Balance
-                </Typography>
-                <Typography variant="subtitle1" sx={{ p: 1 }}>
-                  Income
-                </Typography>
-                <Typography variant="subtitle1" sx={{ p: 1 }}>
-                  Expense
-                </Typography>
-              </Box>
-            </Toolbar>
-          </AppBar>
+          <MenuBar />
         </Grid>
         <Grid item xs={12}>
-          <Container sx={{ display: "flex", justifyContent: "center" }}>
-            <Paper
-              elevation={4}
-              className="paper-backgroundImage"
-              sx={{
-                height: "250px",
-                borderRadius: "40px",
-                width: "460px",
-                display: "flex",
-                alignContent: "center",
-                flexWrap: "wrap",
-              }}
-            >
-              <Typography
-                sx={{ pl: 2, zIndex: 1, bgcolor: "#72ce87c2" }}
-                variant="h4"
-              >
-                Balance: {balance}
-              </Typography>
-            </Paper>
-          </Container>
+          <BalanceCard />
         </Grid>
         <Grid item xs={12}>
           <Paper
