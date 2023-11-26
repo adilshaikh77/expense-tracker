@@ -1,4 +1,4 @@
-import { Grid, Paper } from "@mui/material";
+import { Container, Grid, Paper } from "@mui/material";
 import React from "react";
 
 import "./LandingPage.css";
@@ -16,7 +16,9 @@ const LandingPage = () => {
           <MenuBar />
         </Grid>
         <Grid item xs={12}>
-          <BalanceCard />
+          <Container sx={{ display: "flex", justifyContent: "center" }}>
+            <BalanceCard />
+          </Container>
         </Grid>
         <Grid item xs={12}>
           <Paper

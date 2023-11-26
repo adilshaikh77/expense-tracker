@@ -13,7 +13,7 @@ import { incomeSource } from "../../data/incomeSource";
 
 const DefaultSourceField = () => {
   const [source, setSource] = useState("");
-  const [amount, setAmount] = useState(0);
+  const [amount, setAmount] = useState();
   const dispatch = useDispatch();
 
   const handleAmountChange = (e) => {
@@ -29,6 +29,7 @@ const DefaultSourceField = () => {
           label="Source"
           onChange={(e) => setSource(e.target.value)}
           value={source}
+          required
         >
           <MenuItem value="">
             <em>None</em>
