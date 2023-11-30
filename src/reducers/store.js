@@ -1,11 +1,11 @@
-import { combineReducers, configureStore } from "@reduxjs/toolkit";
-import balanceReducer from "./reducers/addIncome";
-import numberOfSelectSourceOptions from "./reducers/numberOfSelectOptions";
-import expenseListReducer from "./reducers/addToExpenseList";
+import { combineReducers, configureStore } from '@reduxjs/toolkit';
+import balanceReducer from './reducers/balanceReducer';
+import numberOfSelectSourceOptions from './reducers/numberOfSelectOptions';
+import expenseListReducer from './reducers/addToExpenseList';
 
 const rootReducer = combineReducers({
-  balance: balanceReducer,
-  numberOfOptions: numberOfSelectSourceOptions,
+  balanceReducer,
+  numberOfSelectSourceOptions,
   expenseListReducer,
 });
 const store = configureStore({
