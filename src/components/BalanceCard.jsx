@@ -10,9 +10,9 @@ const BalanceCard = () => {
       elevation={4}
       className="paper-backgroundImage"
       sx={{
-        height: "250px",
-        borderRadius: "40px",
-        width: "460px",
+        height: "95px",
+        borderRadius: "0px 40px 40px 0px",
+        width: "340px",
         display: "flex",
         alignContent: "center",
         flexWrap: "wrap",

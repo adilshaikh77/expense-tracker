@@ -4,7 +4,7 @@ const initialState = {
 
 const balanceReducer = (state = initialState, action) => {
   switch (action.type) {
-    case 'ADD_TO_BALANCE':
+    case "ADD_TO_BALANCE":
       const newBalance = action.payload;
       if (newBalance < 0) {
         return state;
@@ -15,7 +15,7 @@ const balanceReducer = (state = initialState, action) => {
         };
       }
 
-    case 'SUBTRACT_FROM_BALANCE':
+    case "SUBTRACT_FROM_BALANCE":
       const subtractBalance = action.payload;
       if (subtractBalance < 0) {
         return state;
@@ -25,6 +25,12 @@ const balanceReducer = (state = initialState, action) => {
           balance: state.balance - subtractBalance,
         };
       }
+
+    case "CLEAR_BALANCE":
+      return {
+        ...state,
+        balance: 0,
+      };
 
     default:
       return state;
