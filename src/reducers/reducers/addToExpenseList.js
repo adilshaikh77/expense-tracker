@@ -1,13 +1,19 @@
 const initialState = {
-  list: [],
+  expenseSource: [],
+  expenseAmount: [],
 };
 
 const expenseListReducer = (state = initialState, action) => {
   switch (action.type) {
-    case "ADD_TO_EXPENSE_LIST":
+    case 'ADD_EXPENSE_SOURCE_TO_LIST':
       return {
         ...state,
-        list: [...state.list, action.payload],
+        expenseSource: [...state.expenseSource, action.payload],
+      };
+    case 'ADD_EXPENSE_AMOUNT_TO_LIST':
+      return {
+        ...state,
+        expenseAmount: [...state.expenseAmount, action.payload],
       };
 
     default:

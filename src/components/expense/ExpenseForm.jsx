@@ -7,20 +7,25 @@ import {
   OutlinedInput,
   Paper,
   Select,
-} from "@mui/material";
-import React, { useState } from "react";
-import { expenseCategories } from "../../data/dataSource";
-import ExpenseList from "./ExpenseList";
-import { useDispatch, useSelector } from "react-redux";
-import { expenseList } from "../../selectors";
-import { addToExpenseList } from "../../reducers/actions/actions";
+} from '@mui/material';
+import React, { useState } from 'react';
+import { expenseCategories } from '../../data/dataSource';
+import ExpenseList from './ExpenseList';
+import { useDispatch, useSelector } from 'react-redux';
+import { expenseList } from '../../selectors';
+import {
+  addExpenseSourceToList,
+  addExpenseAmountToList,
+} from '../../reducers/actions/actions';
 
 const ExpenseForm = () => {
-  const [amount, setAmount] = useState();
-  const [selectedValue, setSelectedValue] = useState([]);
+  const [amount, setAmount] = useState([]);
+  const [selectedExpenseSource, setSelectedExpenseSource] = useState(
+    []
+  );
   const dispatch = useDispatch();
 
-  const list = useSelector(expenseList);
+  const { expenseSource, expenseAmount } = useSelector(expenseList);
 
   const handleAmountChange = (e) => {
     const value = e.target.value;
@@ -28,40 +33,45 @@ const ExpenseForm = () => {
   };
   const handleSelectChange = (event) => {
     const value = event.target.value;
-    setSelectedValue(value);
+    setSelectedExpenseSource(value);
   };
 
   const handleAddItem = () => {
-    if (selectedValue) {
+    if (selectedExpenseSource || amount) {
       // Dispatch the action to add to the expense list
-      dispatch(addToExpenseList(selectedValue));
+      dispatch(addExpenseSourceToList(selectedExpenseSource));
+      dispatch(addExpenseAmountToList(amount));
 
       // Update the local list of selected values
-      setSelectedValue([...selectedValue, selectedValue]);
+      setSelectedExpenseSource(selectedExpenseSource);
+      setAmount(amount);
 
       // Clear the selected value after adding
-      setSelectedValue("");
+      setSelectedExpenseSource('');
+      setAmount('');
     }
   };
 
-  console.log(selectedValue);
+  const disableAddToList =
+    amount.length === 0 || selectedExpenseSource.length === 0;
   return (
     <Paper
       sx={{
-        height: "490px",
-        width: "950px",
+        height: '490px',
+        width: '950px',
         ml: 5,
-        display: "flex",
-        flexDirection: "column",
+        display: 'flex',
+        flexDirection: 'column',
       }}
     >
-      <Box sx={{ display: "flex", alignItems: "flex-start", m: 1 }}>
-        <FormControl sx={{ mr: 1, width: "250px", display: "flex" }}>
-          <InputLabel>Expense Source</InputLabel>
+      <Box sx={{ display: 'flex', alignItems: 'flex-start', m: 1 }}>
+        <FormControl sx={{ mr: 1, width: '250px', display: 'flex' }}>
+          <InputLabel>Expense Source *</InputLabel>
           <Select
-            label="Expense Source"
+            label="Expense Source *"
             required
             onChange={(e) => handleSelectChange(e)}
+            value={selectedExpenseSource}
           >
             <MenuItem value="">
               <em>None</em>
@@ -75,22 +85,32 @@ const ExpenseForm = () => {
         </FormControl>
         <OutlinedInput
           sx={{ mr: 1 }}
-          placeholder="Amount..."
+          placeholder="Amount *"
           type="number"
           value={amount}
           onChange={(e) => handleAmountChange(e)}
         ></OutlinedInput>
-        <Box sx={{ display: "flex", alignItems: "center", height: "54px" }}>
+        <Box
+          sx={{
+            display: 'flex',
+            alignItems: 'center',
+            height: '54px',
+          }}
+        >
           <Button
             variant="contained"
             size="small"
             onClick={() => handleAddItem()}
+            disabled={disableAddToList}
           >
             Add to the List
           </Button>
         </Box>
       </Box>
-      <ExpenseList expenseList={list} />
+      <ExpenseList
+        expenseAmount={expenseAmount}
+        expenseSource={expenseSource}
+      />
     </Paper>
   );
 };
