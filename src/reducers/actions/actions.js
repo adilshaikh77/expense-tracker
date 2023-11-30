@@ -7,3 +7,8 @@ export const numberOfSelectSourceOptions = (number) => ({
   type: "NUMBER_OF_SELECT_OPTIONS",
   payload: number,
 });
+
+export const addToExpenseList = (list) => ({
+  type: "ADD_TO_EXPENSE_LIST",
+  payload: list,
+});

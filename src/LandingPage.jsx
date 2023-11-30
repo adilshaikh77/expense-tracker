@@ -7,6 +7,7 @@ import IncomeForm from "./components/income/IncomeForm";
 import "./LandingPage.css";
 import BalanceCard from "./components/BalanceCard";
 import MenuBar from "./components/MenuBar";
+import ExpenseForm from "./components/expense/ExpenseForm";
 
 const LandingPage = () => {
   return (
@@ -31,11 +32,11 @@ const LandingPage = () => {
               backgroundPosition: "center",
               backgroundSize: "cover",
               display: "flex",
-              flexWrap: "wrap",
               alignItems: "center",
             }}
           >
             <IncomeForm />
+            <ExpenseForm />
           </Paper>
         </Grid>
       </Grid>

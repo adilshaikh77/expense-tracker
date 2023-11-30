@@ -9,7 +9,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 
 import { addBalance } from "../../reducers/actions/actions";
-import { incomeSource } from "../../data/incomeSource";
+import { incomeSource } from "../../data/dataSource";
 
 const DefaultSourceField = () => {
   const [source, setSource] = useState("");
@@ -24,9 +24,9 @@ const DefaultSourceField = () => {
   return (
     <>
       <FormControl sx={{ mb: 1, mr: 1, width: "250px", display: "flex" }}>
-        <InputLabel>Source</InputLabel>
+        <InputLabel>Income Source</InputLabel>
         <Select
-          label="Source"
+          label="Income Source"
           onChange={(e) => setSource(e.target.value)}
           value={source}
           required

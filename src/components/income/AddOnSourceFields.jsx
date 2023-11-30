@@ -4,17 +4,17 @@ import {
   MenuItem,
   OutlinedInput,
   Select,
-} from '@mui/material';
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
+} from "@mui/material";
+import React, { useState } from "react";
+import PropTypes from "prop-types";
 
-import { incomeSource } from '../../data/incomeSource';
-import { useDispatch } from 'react-redux';
-import { addBalance } from '../../reducers/actions/actions';
+import { incomeSource } from "../../data/dataSource";
+import { useDispatch } from "react-redux";
+import { addBalance } from "../../reducers/actions/actions";
 
 const AddOnSourceFields = ({ index, value }) => {
   const dispatch = useDispatch();
-  const [source, setSource] = useState('');
+  const [source, setSource] = useState("");
   const [amount, setAmount] = useState(0);
   const handleAmountChange = (e) => {
     const value = e.target.value;
@@ -24,10 +24,10 @@ const AddOnSourceFields = ({ index, value }) => {
 
   return (
     <>
-      <FormControl sx={{ m: 1, mb: 1, width: '300px' }} key={value}>
-        <InputLabel>Source</InputLabel>
+      <FormControl sx={{ m: 1, mb: 1, width: "300px" }} key={value}>
+        <InputLabel>Income Source</InputLabel>
         <Select
-          label="Source"
+          label="Income Source"
           onChange={(e) => setSource(e.target.value)}
           value={source}
         >

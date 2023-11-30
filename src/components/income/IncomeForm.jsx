@@ -14,7 +14,6 @@ const IncomeForm = () => {
   const [disable, setDisable] = useState(false);
   const incrementnewIncomeSourceOfOptions = () => {
     setNewIncomeSource([...newIncomeSource, newIncomeSource.length]);
-    console.log(newIncomeSource);
     if (newIncomeSource.length > 3) {
       setDisable(true);
     }
