@@ -22,3 +22,7 @@ export const subtractBalance = (amount) => ({
   type: 'SUBTRACT_FROM_BALANCE',
   payload: amount,
 });
+
+export const clearExpenseList = () => ({
+  type: 'CLEAR_EXPENSE_LIST',
+});

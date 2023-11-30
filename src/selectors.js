@@ -8,7 +8,6 @@ export const numberOfOptions = (state) =>
 export const expenseList = createSelector(
   (state) => state.expenseListReducer?.expenseSource,
   (state) => state.expenseListReducer?.expenseAmount,
-  (state) => console.log(state),
   (expenseSource, expenseAmount) => ({
     expenseSource,
     expenseAmount,
