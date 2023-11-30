@@ -17,3 +17,8 @@ export const addExpenseAmountToList = (source) => ({
   type: 'ADD_EXPENSE_AMOUNT_TO_LIST',
   payload: source,
 });
+
+export const subtractBalance = (amount) => ({
+  type: 'SUBTRACT_FROM_BALANCE',
+  payload: amount,
+});

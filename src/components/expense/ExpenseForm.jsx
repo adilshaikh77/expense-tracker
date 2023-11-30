@@ -16,6 +16,7 @@ import { expenseList } from '../../selectors';
 import {
   addExpenseSourceToList,
   addExpenseAmountToList,
+  subtractBalance,
 } from '../../reducers/actions/actions';
 
 const ExpenseForm = () => {
@@ -45,6 +46,8 @@ const ExpenseForm = () => {
       // Update the local list of selected values
       setSelectedExpenseSource(selectedExpenseSource);
       setAmount(amount);
+
+      dispatch(subtractBalance(parseInt(amount)));
 
       // Clear the selected value after adding
       setSelectedExpenseSource('');
