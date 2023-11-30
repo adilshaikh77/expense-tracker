@@ -16,6 +16,13 @@ const expenseListReducer = (state = initialState, action) => {
         expenseAmount: [...state.expenseAmount, action.payload],
       };
 
+    case 'CLEAR_EXPENSE_LIST':
+      return {
+        ...state,
+        expenseSource: [],
+        expenseAmount: [],
+      };
+
     default:
       return state;
   }
